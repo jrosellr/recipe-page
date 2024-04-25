@@ -1,0 +1,37 @@
+@use '../base/utils';
+@use 'sass:map';
+
+@layer theme {
+  //@font-face {
+  //  font-family: 'Inter';
+  //  src: url('/src/assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+  //  font-weight: 400 700;
+  //  font-style: normal;
+  //}
+}
+
+@mixin font-stack() {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  line-height: 150%;
+}
+
+$_font-sizes: (
+  'body': utils.pxToRem(14px),
+  'heading': utils.pxToRem(24px),
+);
+
+@function font-size($size: 'body') {
+  @return map.get($_font-sizes, $size);
+}
+
+$_font-weights: (
+  'regular': 400,
+  'semi-bold': 600,
+  'bold': 700
+);
+
+@function font-weight($weight: 'regular') {
+  @return map.get($_font-weights, $weight);
+}
+

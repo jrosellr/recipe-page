@@ -1,2 +1,13 @@
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+@forward 'base/reset';
+@use 'base/colors';
+@use 'base/utils';
+@forward 'components/card';
+
+body {
+  background-color: colors.get('eggshell');
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
