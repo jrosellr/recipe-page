@@ -1,7 +1,7 @@
 {
-  "name": "social-links-profile",
+  "name": "recipe-page",
   "version": "1.0.0",
-  "description": "Social link card component project from Frontend Mentor",
+  "description": "Recipe page project from Frontend Mentor",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",

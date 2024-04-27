@@ -2,6 +2,7 @@
 @use 'base/colors';
 @use 'base/utils';
 @forward 'components/card';
+@forward 'pages/recipe-entry';
 
 body {
   background-color: colors.get('eggshell');

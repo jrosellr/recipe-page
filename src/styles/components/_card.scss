@@ -3,7 +3,6 @@
 @use '../base/utils';
 
 $_background-color: colors.get('white');
-$_text-color: colors.get('wenge-brown');
 
 .card {
   background-color: $_background-color;
@@ -19,14 +18,22 @@ $_text-color: colors.get('wenge-brown');
 .card__header {
   margin-top: 0;
   margin-bottom: utils.pxToRem(40px);
+  height: utils.pxToRem(171px);
+
+  @media (min-width: utils.pxToRem(736px)) {
+    height: utils.pxToRem(300px);
+    padding: utils.pxToRem(32px) utils.pxToRem(32px) 0 utils.pxToRem(32px);
+  }
 
   img {
-    height: utils.pxToRem(171px);
+    display: block;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-
-    @media (min-width: utils.pxToRem(736px)) {
-      height: utils.pxToRem(300px);
-    }
   }
+}
+
+.card__main {
+  display: block;
+  padding: 0 utils.pxToRem(32px) utils.pxToRem(40px) utils.pxToRem(32px);
 }

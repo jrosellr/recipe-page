@@ -1,0 +1,62 @@
+@use '../base/utils';
+@use 'sass:map';
+
+$_list-spacing: (
+  's': utils.pxToRem(8px),
+  'm': utils.pxToRem(16px),
+  'l': utils.pxToRem(32px),
+);
+
+$_spacing: 's' !default;
+$_style-type: none !default;
+
+@layer list-base {
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      margin-top: map.get($_list-spacing, $_spacing);
+      margin-bottom: map.get($_list-spacing, $_spacing);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      line-height: initial;
+      display: inline;
+    }
+  }
+}
+
+@mixin configure($settings: null) {
+  @if $settings {
+    @each $setting, $value in $settings {
+      @include _configure-spacing($setting, $value);
+    }
+  }
+}
+
+@mixin _configure-spacing($setting, $value) {
+  @if $setting == 'spacing' {
+    $_spacing: $value !global;
+  }
+}
+
+@mixin styles() {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    margin-top: map.get($_list-spacing, $_spacing);
+    margin-bottom: map.get($_list-spacing, $_spacing);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

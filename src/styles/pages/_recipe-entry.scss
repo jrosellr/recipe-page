@@ -1,0 +1,100 @@
+@use '../base/colors';
+@use '../base/utils';
+@use '../base/typography';
+@use '../components/list';
+
+p {
+  @include typography.body();
+  color: colors.get('wenge-brown');
+}
+
+.section-separator {
+  background-color: colors.get('white-coffee');
+  height: 1px;
+  border: 0;
+
+  margin-bottom: utils.pxToRem(32px);
+}
+
+.recipe__title {
+  @include typography.heading('main');
+  color: colors.get('dark-charcoal');
+}
+
+.section__title {
+  @include typography.heading('section');
+
+  color: colors.get('brandy-red');
+
+  margin-top: 0;
+}
+
+.preparation-time-section {
+  margin-top: 0;
+  margin-bottom: utils.pxToRem(32px);
+
+  background-color: colors.get('snow');
+}
+
+.callout {
+  padding: utils.pxToRem(24px);
+  border-radius: 12px;
+}
+
+.callout_title {
+  margin-top: 0;
+  @include typography.heading('callout');
+
+  color: colors.get('dark-raspberry');
+}
+
+.centered-bullet-list {
+  @include list.styles();
+
+  li {
+    display: flex;
+    align-items: center;
+
+    margin-left: utils.pxToRem(8px);
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.bullet-marker {
+  margin-right: utils.pxToRem(28px);
+
+  &::after {
+    content: "•";
+    color: colors.get('dark-raspberry');
+  }
+}
+
+.ingredients-section {
+  margin-top: 0;
+  margin-bottom: utils.pxToRem(32px);
+}
+
+.instructions-section {
+  margin-top: 0;
+  margin-bottom: utils.pxToRem(32px);
+}
+
+.instructions-list {
+  @include list.styles();
+  list-style-type: decimal;
+  padding-left: utils.pxToRem(8px + 16px); // 8px of padding left + 16px marker width
+
+  li {
+    padding-left: utils.pxToRem(16px);
+
+    &::marker {
+      @include typography.body();
+      font-weight: 700;
+
+      color: colors.get('brandy-red');
+    }
+  }
+}
